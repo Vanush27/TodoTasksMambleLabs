@@ -8,7 +8,6 @@ export const useOutsideAlerter = (ref: any, setPopupMessage: any) => {
                 setPopupMessage(false);
             }
         }
-
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);

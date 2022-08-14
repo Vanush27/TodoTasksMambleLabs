@@ -44,14 +44,13 @@ export const todoSlice = createSlice({
 
             if (state.isHideCompletedActive) {
                 const getLocalData = getLocalStorage(ITEMS_LOCAL_STORAGE);
-                const newData = [...getLocalData, payloadData];
+                const newClonedArray = JSON.parse(JSON.stringify(getLocalData));
+                newClonedArray.unshift(payloadData);
+                setLocalStorage(ITEMS_LOCAL_STORAGE, newClonedArray);
+                state.todoList = newClonedArray.filter((item: TaskItem) => !item.isCompleted);
 
-                setLocalStorage(ITEMS_LOCAL_STORAGE, newData);
-                state.todoList = newData.filter((item: TaskItem) => !item.isCompleted);
-
-                }
-             else {
-                state.todoList.unshift(payloadData)
+            } else {
+                state.todoList.unshift(payloadData);
                 setLocalStorage(ITEMS_LOCAL_STORAGE, state.todoList);
             }
         },
@@ -62,7 +61,7 @@ export const todoSlice = createSlice({
         },
 
         currentDeletedId: (state: any, action) => {
-            state.currentId = action.payload
+            state.currentId = action.payload;
         },
 
         toggleTodoComplete: (state, action) => {
@@ -88,13 +87,16 @@ export const todoSlice = createSlice({
         },
 
         hideCompletedActive: (state, action) => {
-            state.isHideCompletedActive = action.payload
+            state.isHideCompletedActive = action.payload;
         }
     },
 })
 
 
-export const {addTodoList, addTodo, deleteTodoItem, currentDeletedId, toggleTodoComplete, hideCompleteTodos, hideCompletedActive} = todoSlice.actions
+export const {
+    addTodoList, addTodo, deleteTodoItem, currentDeletedId, toggleTodoComplete,
+    hideCompleteTodos, hideCompletedActive
+} = todoSlice.actions
 
 export default todoSlice.reducer
 
