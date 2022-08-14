@@ -1,0 +1,27 @@
+.container {
+    max-width: 1170px;
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 80px auto;
+}
+
+.wrapper > p {
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: capitalize;
+    color: #174348;
+}
+
+.input_task::placeholder {
+    color: #DFDFDF;
+}
+
+@media only screen and (max-width: 400px) {
+    .container {
+        max-width: 400px;
+        width: 100%;
+        padding: 24px;
+    }
+}

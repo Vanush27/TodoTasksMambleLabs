@@ -1,0 +1,47 @@
+.text_container {
+    margin: 140px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+h3 {
+
+    font-weight: 500;
+    font-size: 24px;
+    text-transform: capitalize;
+    color: #ACACAC;
+}
+
+h2 {
+
+    font-weight: 500;
+    font-size: 36px;
+    text-transform: capitalize;
+    color: #666666;
+}
+
+@media only screen and (max-width: 980px) {
+    h3 {
+        font-size: 16px;
+        width: 360px;
+    }
+
+    h2 {
+        font-size: 22px;
+        width: 400px;
+    }
+}
+
+
+@media only screen and (max-width: 400px) {
+    h3 {
+        font-size: 14px;
+        width: 289px;
+    }
+
+    h2 {
+        font-size: 18px;
+        width: 320px;
+    }
+}
