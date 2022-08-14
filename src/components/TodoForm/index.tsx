@@ -34,8 +34,9 @@ const ToDoForm: FC = () => {
 
 
     const handleRemoveInputValue = () => {
-        dispatch(setInputValue(''))
-        dispatch(clearDeleteButton(!isClearDeleteButton))
+        dispatch(setInputValue(''));
+        dispatch(clearDeleteButton(!isClearDeleteButton));
+        dispatch(inputErrorMessage(''));
     }
 
     const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
